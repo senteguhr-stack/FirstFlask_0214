@@ -3,12 +3,16 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
-    nama = None
-    if request.method == "POST":
-        # ambil parameter "nama" dari form (TextField)
-        nama = request.form.get("nama", "").strip()
+    
+    return render_template("index.html", nama=None)
+
+
+@app.route("/hasil", methods=["POST"])
+def hasil():
+    
+    nama = request.form.get("nama", "").strip()
     return render_template("index.html", nama=nama)
 
 
