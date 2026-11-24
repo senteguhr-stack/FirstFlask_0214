@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main class="card">
+        <h1>First Flask</h1>
+
+        <form method="post" action="/">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama kamu" required>
+            <button type="submit">Kirim</button>
+        </form>
+
+        {% if nama %}
+            <p class="hasil">Halo, {{ nama }}!</p>
+        {% endif %}
+    </main>
+</body>
+</html>
